@@ -273,6 +273,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: eurekaserver
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       # SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
@@ -295,6 +296,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: accounts
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -318,6 +320,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: loans
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -341,6 +344,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: cards
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -367,6 +371,7 @@ services:
         max_attempts: 3
         window: 180s
     environment:
+      SPRING_APPLICATION_NAME: gatewayserver
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
