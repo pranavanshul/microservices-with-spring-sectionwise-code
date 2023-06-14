@@ -21,6 +21,8 @@ data:
   SPRING_PROFILES_ACTIVE: prod
   SPRING_CONFIG_IMPORT: configserver:http://configserver-service:8071/
   EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver-service:8070/eureka/
+  EUREKA_APPLICATION_NAME: eurekaserver
+  ACCOUNTS_APPLICATION_NAME: accounts
 ```
 ### \accounts\kubernetes\2_zipkin.yml
 ```yaml
@@ -131,6 +133,11 @@ spec:
         ports:
         - containerPort: 8070
         env:
+        - name: SPRING_APPLICATION_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: eazybank-configmap
+              key: EUREKA_APPLICATION_NAME
         - name: SPRING_PROFILES_ACTIVE
           valueFrom: 
             configMapKeyRef:
@@ -185,6 +192,11 @@ spec:
         ports:
         - containerPort: 8080
         env:
+        - name: SPRING_APPLICATION_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: eazybank-configmap
+              key: ACCOUNTS_APPLICATION_NAME
         - name: SPRING_PROFILES_ACTIVE
           valueFrom: 
             configMapKeyRef:
