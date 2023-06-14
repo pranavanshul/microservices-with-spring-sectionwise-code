@@ -46,10 +46,11 @@ public class SecurityConfig {
         JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConverter());
 
-        http.authorizeHttpRequests(authorize -> authorize.requestMatchers("/sayHello").hasRole("ACCOUNTS")
-                        .anyRequest().authenticated())
-                .oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter);
-        http.csrf().disable();
+         http.authorizeHttpRequests(authorize -> authorize.requestMatchers("/sayHello").hasRole("ACCOUNTS")
+            .anyRequest().authenticated())
+            .oauth2ResourceServer(oauth2ResourceServerCustomizer ->
+                    oauth2ResourceServerCustomizer.jwt(jwtCustomizer -> jwtCustomizer.jwtAuthenticationConverter(jwtAuthenticationConverter)));
+	http.csrf((csrf) -> csrf.disable());
         return http.build();
     }
 }
@@ -123,7 +124,7 @@ public class SecurityConfig {
                         .pathMatchers("/eazybank/cards/**").authenticated()
                         .pathMatchers("/eazybank/loans/**").permitAll())
                 .oauth2Login(Customizer.withDefaults());
-        http.csrf().disable();
+        http.csrf((csrf) -> csrf.disable());
         return http.build();
     }
 
