@@ -22,7 +22,7 @@ taking **EazyBank** as an example Bank application. Below are the key steps that
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
@@ -87,7 +87,7 @@ taking **EazyBank** as an example Bank application. Below are the key steps that
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
@@ -152,7 +152,7 @@ taking **EazyBank** as an example Bank application. Below are the key steps that
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
