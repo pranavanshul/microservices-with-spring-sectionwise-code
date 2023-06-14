@@ -21,8 +21,9 @@ public class SecurityConfig {
         http.authorizeExchange(exchanges -> exchanges.pathMatchers("/eazybank/accounts/**").hasRole("ACCOUNTS")
                         .pathMatchers("/eazybank/cards/**").authenticated()
                         .pathMatchers("/eazybank/loans/**").permitAll())
-                .oauth2ResourceServer().jwt().jwtAuthenticationConverter(grantedAuthoritiesExtractor());
-        http.csrf().disable();
+                .oauth2ResourceServer(oauth2ResourceServerCustomizer ->
+                        oauth2ResourceServerCustomizer.jwt(jwtCustomizer -> jwtCustomizer.jwtAuthenticationConverter(grantedAuthoritiesExtractor())));
+        http.csrf((csrf) -> csrf.disable());
         return http.build();
     }
 
