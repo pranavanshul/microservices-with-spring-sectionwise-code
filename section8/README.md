@@ -24,7 +24,7 @@ this **section8** where we focused on set up of **Eureka Server** inside our mic
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
@@ -34,7 +34,7 @@ this **section8** where we focused on set up of **Eureka Server** inside our mic
 	<description>Service Discovery for Bank Microservices</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2022.0.0</spring-cloud.version>
+		<spring-cloud.version>2022.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -467,6 +467,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: eurekaserver
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       
@@ -487,6 +488,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: accounts
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -508,6 +510,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: loans
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -529,6 +532,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: cards
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -567,6 +571,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: eurekaserver
       SPRING_PROFILES_ACTIVE: dev
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       
@@ -587,6 +592,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: accounts
       SPRING_PROFILES_ACTIVE: dev
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -608,6 +614,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: loans
       SPRING_PROFILES_ACTIVE: dev
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -629,6 +636,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: cards
       SPRING_PROFILES_ACTIVE: dev
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -667,6 +675,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: eurekaserver
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       
@@ -687,6 +696,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: accounts
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -708,6 +718,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: loans
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
@@ -729,6 +740,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: cards
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
