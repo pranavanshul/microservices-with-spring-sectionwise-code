@@ -17,7 +17,7 @@ public class SecurityConfig {
                         .pathMatchers("/eazybank/cards/**").authenticated()
                         .pathMatchers("/eazybank/loans/**").permitAll())
                 .oauth2Login(Customizer.withDefaults());
-        http.csrf().disable();
+        http.csrf((csrf) -> csrf.disable());
         return http.build();
     }
 

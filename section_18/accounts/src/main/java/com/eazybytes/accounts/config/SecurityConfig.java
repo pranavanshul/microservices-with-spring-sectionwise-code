@@ -17,9 +17,10 @@ public class SecurityConfig {
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConverter());
 
         http.authorizeHttpRequests(authorize -> authorize.requestMatchers("/sayHello").hasRole("ACCOUNTS")
-                        .anyRequest().authenticated())
-                .oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter);
-        http.csrf().disable();
+            .anyRequest().authenticated())
+            .oauth2ResourceServer(oauth2ResourceServerCustomizer ->
+                    oauth2ResourceServerCustomizer.jwt(jwtCustomizer -> jwtCustomizer.jwtAuthenticationConverter(jwtAuthenticationConverter)));
+        http.csrf((csrf) -> csrf.disable());
         return http.build();
     }
 }
