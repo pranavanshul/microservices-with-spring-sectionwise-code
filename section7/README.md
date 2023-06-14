@@ -22,7 +22,7 @@ your pom.xml should looks like shown below,
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
@@ -32,7 +32,7 @@ your pom.xml should looks like shown below,
 	<description>Configuration Server for Bank Microservices</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2022.0.0</spring-cloud.version>
+		<spring-cloud.version>2022.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -153,7 +153,7 @@ encrypt.key=eazybytes
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
@@ -164,7 +164,7 @@ encrypt.key=eazybytes
 	<description>Microservice for Accounts</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2022.0.0</spring-cloud.version>
+		<spring-cloud.version>2022.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -233,7 +233,7 @@ encrypt.key=eazybytes
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
@@ -244,7 +244,7 @@ encrypt.key=eazybytes
 	<description>Microservice for Loans</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2022.0.0</spring-cloud.version>
+		<spring-cloud.version>2022.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -318,7 +318,7 @@ encrypt.key=eazybytes
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eaztbytes</groupId>
@@ -329,7 +329,7 @@ encrypt.key=eazybytes
 	<description>Microservice for Cards</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2022.0.0</spring-cloud.version>
+		<spring-cloud.version>2022.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -394,11 +394,8 @@ encrypt.key=eazybytes
 </project>
 ```
 -  Make sure all the required and associated libraries are downloaded under maven dependencies of **accounts**, **loans**, **cards** microservices.
--  Like we discussed in the course, add **@RefreshScope** annotation on top of **AccountsApplication.java, LoansApplication.java and CardsApplication.java**. This is completely
-   optional and can be used in the scenarios where we want to refresh the properties loaded into the given microservice with out the need of restart. In order to refresh the 
-   properties we can invoke the POST API **/actuator/refresh** exposed by the actuator through Postman. This refresh API will be exposed only if we configure **management.endpoints.web.exposure.include=*** inside **application.properties** like mentioned in the below step.
--  Open the **application.properties** present inside **accounts**, **loans**, **cards** microservices and make sure to update the properties related to Config server details 
-   inside them. After making the changes, your **application.properties** files should like below. For more details please check the course videos.
+-  Like we discussed in the course, add **@RefreshScope** annotation on top of **AccountsApplication.java, LoansApplication.java and CardsApplication.java**. This is completely optional and can be used in the scenarios where we want to refresh the properties loaded into the given microservice with out the need of restart. In order to refresh the properties we can invoke the POST API **/actuator/refresh** exposed by the actuator through Postman. This refresh API will be exposed only if we configure **management.endpoints.web.exposure.include=*** inside **application.properties** like mentioned in the below step.
+-  Open the **application.properties** present inside **accounts**, **loans**, **cards** microservices and make sure to update the properties related to Config server details inside them. After making the changes, your **application.properties** files should like below. For more details please check the course videos.
 ### \accounts\src\main\resources\application.properties
 ```
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -867,6 +864,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: accounts
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
   
@@ -886,6 +884,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: loans
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
     
@@ -905,6 +904,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: cards
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       
@@ -942,6 +942,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: accounts
       SPRING_PROFILES_ACTIVE: dev
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
   
@@ -961,6 +962,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: loans
       SPRING_PROFILES_ACTIVE: dev
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
     
@@ -980,6 +982,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: cards
       SPRING_PROFILES_ACTIVE: dev
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       
@@ -1017,6 +1020,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: accounts
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
   
@@ -1036,6 +1040,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: loans
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
     
@@ -1055,6 +1060,7 @@ services:
         max_attempts: 3
         window: 120s
     environment:
+      SPRING_APPLICATION_NAME: cards
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       
