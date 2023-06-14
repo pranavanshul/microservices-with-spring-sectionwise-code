@@ -20,6 +20,11 @@ spec:
         ports:
         - containerPort: 9000
         env:
+        - name: SPRING_APPLICATION_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: eazybank-configmap
+              key: CARDS_APPLICATION_NAME
         - name: SPRING_PROFILES_ACTIVE
           valueFrom: 
             configMapKeyRef:
