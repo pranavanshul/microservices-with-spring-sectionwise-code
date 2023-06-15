@@ -3,6 +3,7 @@
 
 deploymentName: accounts-deployment
 deploymentLabel: accounts
+appName: accounts
 
 replicaCount: 2
 
@@ -23,3 +24,4 @@ profile_enabled: true
 eureka_enabled: true
 keycloak_enabled: false
 resouceserver_enabled: true
+appname_enabled: true

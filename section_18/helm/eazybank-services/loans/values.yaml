@@ -3,6 +3,7 @@
 
 deploymentName: loans-deployment
 deploymentLabel: loans
+appName: loans
 
 replicaCount: 1
 
@@ -23,3 +24,4 @@ profile_enabled: true
 eureka_enabled: true
 keycloak_enabled: false
 resouceserver_enabled: false
+appname_enabled: true
