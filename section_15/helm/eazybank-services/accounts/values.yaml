@@ -3,6 +3,7 @@
 
 deploymentName: accounts-deployment
 deploymentLabel: accounts
+appName: accounts
 
 replicaCount: 1
 
@@ -21,3 +22,4 @@ config_enabled: true
 zipkin_enabled: true
 profile_enabled: true
 eureka_enabled: true
+appname_enabled: true

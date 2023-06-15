@@ -2,6 +2,7 @@
 # Declare variables to be passed into your templates.
 deploymentName: eurekaserver-deployment
 deploymentLabel: eurekaserver
+appName: eurekaserver
 
 replicaCount: 1
 
@@ -20,3 +21,4 @@ config_enabled: true
 zipkin_enabled: true
 profile_enabled: true
 eureka_enabled: false
+appname_enabled: true

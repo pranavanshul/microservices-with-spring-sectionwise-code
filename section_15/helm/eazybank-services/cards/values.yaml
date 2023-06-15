@@ -3,6 +3,7 @@
 
 deploymentName: cards-deployment
 deploymentLabel: cards
+appName: cards
 
 replicaCount: 1
 
@@ -21,3 +22,4 @@ config_enabled: true
 zipkin_enabled: true
 profile_enabled: true
 eureka_enabled: true
+appname_enabled: true
