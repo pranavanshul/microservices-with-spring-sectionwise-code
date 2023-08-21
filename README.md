@@ -116,6 +116,7 @@ Learn how to create enterprise and production ready Microservices with Spring, S
 | "kubectl rollout undo deployment accounts-deployment --to-revision=1" | To rollback to a given revision for a deployment inside your cluster |
 | "kubectl autoscale deployment accounts-deployment --min=3 --max=10 --cpu-percent=70" | To create automatic scaling using HPA for a deployment inside your cluster |
 | "kubectl logs node-id" | To get a logs of a given node inside your cluster |
+| "echo Password: $(kubectl get secret --namespace default my-release-keycloak -o jsonpath="{.data.admin-password}" | base64 --decode)" | Command to know the admin password of KeyCloak |
 
 ## Helm Commands used in the course
 
