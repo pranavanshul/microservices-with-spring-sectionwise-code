@@ -130,3 +130,4 @@ Learn how to create enterprise and production ready Microservices with Spring, S
 | "helm uninstall [NAME]" | Uninstall all of the resources associated with a given release |
 | "helm template [NAME] [CHART]" | Render chart templates locally along with the values |
 | "helm list" | Lists all of the helm releases inside a K8s cluster |
+| "helm install my-release oci://registry-1.docker.io/bitnamicharts/keycloak --set service.type=LoadBalancer" | Helm command to install KeyCloak |
